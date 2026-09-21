@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agreement Template Creation — Guide de l'utilisateur / User Guide</title>
+<style>
+body{font:16px/1.65 -apple-system,Helvetica,Arial,sans-serif;max-width:780px;margin:40px auto;padding:0 20px;color:#1d2330}
+h1{font-size:26px;margin-bottom:4px}
+h2{font-size:20px;margin-top:38px;padding-bottom:5px;border-bottom:1px solid #e6e8ec}
+h3{font-size:16px;margin-top:26px}
+hr{margin:56px 0;border:0;border-top:1px solid #ddd}
+.d{color:#666}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:15px}
+th,td{border-bottom:1px solid #e6e8ec;padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f6f7f9;font-weight:600}
+kbd{font:13px ui-monospace,Menlo,monospace;background:#f2f3f5;border:1px solid #d8dbe0;border-radius:4px;padding:1px 5px}
+.ui{font-weight:600}
+.note{background:#f6f7f9;border-left:3px solid #1f3a5f;padding:12px 16px;margin:18px 0}
+ul{padding-left:22px}
+li{margin:5px 0}
+@media print{body{max-width:none;margin:0;font-size:11.5pt}h2{page-break-after:avoid}table{page-break-inside:avoid}hr{page-break-before:always;border:0;margin:0}}
+</style></head>
+<body>
+
+<h1>Agreement Template Creation</h1>
+<p class="d">Guide de l'utilisateur — 20 septembre 2026 · <a href="#en">English version below</a></p>
+
+<h2>Ce que fait l'application</h2>
+<p>Vous déposez un acte signé. L'application repère les éléments propres à l'opération — parties, représentants, adresses, numéros d'immatriculation, dates, montants, nombres de titres, coordonnées bancaires — et les remplace par des variables nommées. Vous obtenez un fichier Word réutilisable pour l'opération suivante.</p>
+<p>Tout se passe dans la mémoire de votre Mac. Aucun document n'est transmis, à personne, y compris à l'éditeur.</p>
+
+<h2>Premiers pas</h2>
+<p>Ouvrez un acte de trois façons : glissez-le sur la fenêtre, cliquez sur <span class="ui">Choisir un fichier…</span>, ou utilisez le menu <span class="ui">Fichier &gt; Ouvrir un acte…</span> (<kbd>⌘O</kbd>). Pour refermer le document et l'effacer de la mémoire : <span class="ui">Fichier &gt; Fermer le document</span> (<kbd>⇧⌘W</kbd>).</p>
+<p>Formats acceptés : Word <code>.docx</code>, <code>.doc</code>, <code>.rtf</code>, <code>.odt</code>, PDF texte, PDF scanné, images (PNG, JPEG, TIFF, HEIC) et texte brut. Les actes en français comme en anglais sont reconnus ; la langue est détectée à l'ouverture.</p>
+<div class="note"><strong>Seul le format <code>.docx</code> conserve la mise en forme d'origine.</strong> Pour les autres sources, l'application le signale sous le titre du document : le modèle produit reprend le texte, pas la présentation.</div>
+
+<h2>L'écran de travail</h2>
+<p>Le document occupe la partie gauche, chaque élément repéré surligné dans la couleur de son type et suivi du nom de variable proposé. La partie droite liste ces éléments groupés par type, avec le nombre d'occurrences de chacun.</p>
+<p>En haut de la liste, un compteur indique par exemple <span class="ui">22 variable(s) · 30 remplacement(s)</span>. Le champ <span class="ui">Filtrer…</span> réduit la liste à ce que vous cherchez.</p>
+
+<h2>Ce que l'application repère</h2>
+<table>
+<tr><th>Type</th><th>Exemples</th></tr>
+<tr><td>Personne</td><td>Noms et prénoms des parties, représentants, dirigeants</td></tr>
+<tr><td>Société</td><td>Dénominations sociales, avec ou sans forme juridique</td></tr>
+<tr><td>Lieu · Adresse · Code postal et ville</td><td>Sièges sociaux, domiciles, lieux de naissance</td></tr>
+<tr><td>Date</td><td>Dates de signature, de naissance, d'échéance</td></tr>
+<tr><td>Montant · Nombre de titres · Pourcentage</td><td>Prix, capital, quantités d'actions, quotités</td></tr>
+<tr><td>SIREN/SIRET · Ville du RCS · N° TVA</td><td>Identifiants d'immatriculation</td></tr>
+<tr><td>IBAN · N° sécurité sociale</td><td>Coordonnées bancaires, numéro de sécurité sociale</td></tr>
+<tr><td>E-mail · Téléphone · Site internet</td><td>Coordonnées</td></tr>
+<tr><td>Toque</td><td>Numéro de toque d'avocat</td></tr>
+</table>
+<p>Les dates et références des textes de loi cités dans l'acte sont volontairement laissées intactes : une directive ou un règlement n'est pas un élément propre à l'opération.</p>
+
+<h3>Comment les variables sont nommées</h3>
+<p>L'application lit les termes définis de l'acte — <em>ci-après le « Cédant »</em>, <em>(the "Seller")</em> — et nomme les variables selon le rôle de chacun, dans la langue du document : <code>[Dénomination du Cédant]</code>, <code>[Siège du Cédant]</code>, <code>[Date de naissance de l'Acquéreur]</code>. Quand un rôle est identifié pour une personne physique exerçant une fonction, le titre est repris : <code>[Président du Cédant]</code>. À défaut de terme défini, les variables sont numérotées par type : <code>[Lieu 1]</code>, <code>[Montant 2]</code>.</p>
+
+<h2>Relire les détections</h2>
+<p>C'est l'étape qui compte. Cliquez sur un élément surligné dans le document, ou sur une ligne de la liste : l'inspecteur s'ouvre en haut à droite avec trois actions.</p>
+<table>
+<tr><th>Action</th><th>Effet</th></tr>
+<tr><td><span class="ui">Renommer</span></td><td>Change le nom de la variable. Validez avec <kbd>↩</kbd>. Deux lignes portant le même nom sont fusionnées — c'est ainsi qu'on réunit « M. Dupont » et « Jean-Marc Dupont » sous une seule variable.</td></tr>
+<tr><td><span class="ui">Ignorer cette occurrence</span></td><td>Laisse cette apparition-là en clair, sans toucher aux autres.</td></tr>
+<tr><td><span class="ui">Exclure partout</span></td><td>Retire l'élément du modèle : il restera en clair partout. Utile pour un mot repéré à tort.</td></tr>
+</table>
+<p>La case à cocher devant chaque ligne a le même effet que <span class="ui">Exclure partout</span>, et la case en tête d'un groupe agit sur tout le type d'un coup.</p>
+
+<h3>Les éléments « à vérifier »</h3>
+<p>Quand la détection est incertaine, l'élément est marqué <span class="ui">à vérifier</span>, affiché en pointillés et <strong>décoché par défaut</strong> : il ne sera pas remplacé tant que vous ne l'aurez pas validé. C'est un choix délibéré — mieux vaut un oubli que vous corrigez qu'un remplacement que vous n'aviez pas voulu.</p>
+
+<h3>Créer une variable oubliée</h3>
+<p>Sélectionnez le texte dans le document. L'inspecteur bascule sur <span class="ui">Sélection</span> : donnez un nom, choisissez un type, puis <span class="ui">Créer la variable et remplacer toutes les occurrences</span>. Toutes les apparitions de ce texte dans l'acte seront traitées.</p>
+
+<h2>Produire le modèle</h2>
+<p>Trois options, sous la liste :</p>
+<ul>
+<li><span class="ui">Surligner les variables en jaune dans le modèle</span> — pour les repérer d'un coup d'œil à la rédaction suivante.</li>
+<li><span class="ui">Supprimer les images (logos, signatures, tampons)</span> — recommandé : une signature scannée identifie autant qu'un nom.</li>
+<li><span class="ui">Ajouter en annexe la table des variables</span> — la liste des variables en fin de document, <em>sans</em> les valeurs d'origine.</li>
+</ul>
+<p>Cliquez sur <span class="ui">Produire le modèle</span>.</p>
+
+<h3>Lire le rapport</h3>
+<p>Le rapport annonce le nombre de variables et de remplacements, puis le <strong>contrôle résiduel</strong>. L'application relit tout le fichier produit — corps, en-têtes, pieds de page, notes, métadonnées, relations — et cherche si une valeur remplacée y subsiste.</p>
+<p>Si une valeur subsiste, elle est nommée avec son emplacement. Les causes habituelles sont une occurrence que vous avez ignorée volontairement, ou du texte dans une zone non éditable : graphique, objet incorporé, image.</p>
+<p>Le rapport indique aussi ce qui a été retiré : métadonnées, commentaires, révisions acceptées et texte supprimé purgé, liens hypertexte, images.</p>
+<div class="note"><strong>Ce contrôle ne porte que sur les éléments détectés ou ajoutés.</strong> Un nom non repéré, une clause propre à l'opération, un montage particulier ou un simple contexte peuvent permettre la ré-identification. La relecture humaine reste indispensable.</div>
+
+<h3>Les deux fichiers à enregistrer</h3>
+<p><span class="ui">Enregistrer le modèle (.docx)</span> produit le document réutilisable.</p>
+<p><span class="ui">Table de correspondance (confidentielle)</span> produit un fichier CSV associant chaque variable à sa valeur d'origine. <strong>Ce fichier contient les données de l'acte.</strong> Il se conserve comme l'acte lui-même, jamais avec le modèle : c'est lui qui permettrait de défaire le travail.</p>
+
+<h2>PDF scannés et images</h2>
+<p>La reconnaissance de texte s'exécute sur votre Mac (Vision). Comptez une minute pour un PDF scanné de plusieurs pages. Le texte reconnu n'est jamais parfait : relisez-le avant de vous fier aux détections, et sachez que la mise en forme d'origine n'est pas reprise.</p>
+
+<h2>Essai et déblocage</h2>
+<p>L'application est gratuite. <strong>Trois actes</strong> peuvent être exportés en modèle sans rien payer. Ouvrir un acte, l'analyser et le relire restent gratuits en toutes circonstances : seul l'export est décompté.</p>
+<p>Ré-exporter un acte déjà exporté — après correction d'une variable, par exemple — ne consomme pas un nouvel essai.</p>
+<p>Au-delà, un achat unique débloque l'application définitivement : pas d'abonnement, pas de paiement à l'acte. L'achat vaut pour tous vos Mac connectés au même compte Apple. <span class="ui">Restaurer mes achats</span>, dans la fenêtre de déblocage ou dans le menu de l'application, le rétablit après une réinstallation ou sur une nouvelle machine.</p>
+
+<h2>Confidentialité</h2>
+<p>Aucune donnée collectée, aucune connexion réseau pour traiter vos documents, aucun historique. Seule une empreinte numérique des actes déjà exportés est conservée localement, pour ne pas décompter deux fois le même acte ; elle ne permet pas de reconstituer le document. <a href="index.html">Politique de confidentialité complète</a>.</p>
+
+<h2>Ce que l'application ne fait pas</h2>
+<ul>
+<li>Elle ne réécrit pas les clauses propres à l'opération : une clause de earn-out taillée sur mesure reste telle quelle.</li>
+<li>Elle ne garantit pas l'anonymisation au sens de la réglementation sur les données personnelles.</li>
+<li>Elle ne fournit aucun conseil juridique.</li>
+</ul>
+<p>C'est une aide à la rédaction. Le modèle produit engage celui qui le réutilise.</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:applicated.cl@gmail.com">applicated.cl@gmail.com</a></p>
+
+<hr id="en">
+
+<div lang="en">
+<h1>Agreement Template Creation</h1>
+<p class="d">User Guide — 20 September 2026</p>
+
+<h2>What the app does</h2>
+<p>You drop in an executed agreement. The app finds the deal-specific details — parties, representatives, addresses, registration numbers, dates, amounts, numbers of securities, bank details — and replaces them with named variables. You get a Word file you can reuse for the next transaction.</p>
+<p>Everything happens in your Mac's memory. No document is ever transmitted to anyone, including the publisher.</p>
+
+<h2>Getting started</h2>
+<p>Open an agreement in one of three ways: drag it onto the window, click <span class="ui">Choose a file…</span>, or use <span class="ui">File &gt; Open an agreement…</span> (<kbd>⌘O</kbd>). To close the document and clear it from memory: <span class="ui">File &gt; Close document</span> (<kbd>⇧⌘W</kbd>).</p>
+<p>Accepted formats: Word <code>.docx</code>, <code>.doc</code>, <code>.rtf</code>, <code>.odt</code>, text PDF, scanned PDF, images (PNG, JPEG, TIFF, HEIC) and plain text. Agreements in English and in French are both supported; the language is detected on opening.</p>
+<div class="note"><strong>Only <code>.docx</code> preserves the original formatting.</strong> For other sources the app says so under the document title: the template keeps the text, not the layout.</div>
+
+<h2>The working view</h2>
+<p>The document fills the left side, each detected item highlighted in its type colour and followed by the proposed variable name. The right side lists those items grouped by type, with the number of occurrences of each.</p>
+<p>A counter at the top of the list reads, for instance, <span class="ui">22 variable(s) · 30 replacement(s)</span>. The <span class="ui">Filter…</span> field narrows the list.</p>
+
+<h2>What the app detects</h2>
+<table>
+<tr><th>Type</th><th>Examples</th></tr>
+<tr><td>Person</td><td>Names of parties, representatives, directors</td></tr>
+<tr><td>Company</td><td>Company names, with or without legal form</td></tr>
+<tr><td>Place · Address · Postcode and city</td><td>Registered offices, residences, places of birth</td></tr>
+<tr><td>Date</td><td>Signature, birth and maturity dates</td></tr>
+<tr><td>Amount · Number of securities · Percentage</td><td>Prices, share capital, share counts, holdings</td></tr>
+<tr><td>Registration number · Registry city · VAT number</td><td>Company identifiers</td></tr>
+<tr><td>IBAN · Social security number</td><td>Bank details, social security number</td></tr>
+<tr><td>E-mail · Telephone · Website</td><td>Contact details</td></tr>
+<tr><td>Bar number</td><td>Lawyer's bar registration number</td></tr>
+</table>
+<p>Dates and references of statutes and regulations cited in the agreement are deliberately left untouched: a directive is not a deal-specific detail.</p>
+
+<h3>How variables are named</h3>
+<p>The app reads the defined terms of the agreement — <em>(the "Seller")</em>, <em>ci-après le « Cédant »</em> — and names variables by role, in the language of the document: <code>[Company name of the Seller]</code>, <code>[Registered office of the Seller]</code>, <code>[Date of birth of the Purchaser]</code>. Where a role is identified for an individual holding an office, the title is carried over: <code>[Director of the Seller]</code>. Without a defined term, variables are numbered by type: <code>[Place 1]</code>, <code>[Amount 2]</code>.</p>
+
+<h2>Reviewing the detections</h2>
+<p>This is the step that matters. Click a highlighted item in the document, or a row in the list: the inspector opens at the top right with three actions.</p>
+<table>
+<tr><th>Action</th><th>Effect</th></tr>
+<tr><td><span class="ui">Rename</span></td><td>Changes the variable name. Press <kbd>↩</kbd> to confirm. Two rows with the same name are merged — that is how you bring "Mr Smith" and "John Smith" under one variable.</td></tr>
+<tr><td><span class="ui">Ignore this occurrence</span></td><td>Leaves that one appearance as it is, without touching the others.</td></tr>
+<tr><td><span class="ui">Exclude everywhere</span></td><td>Removes the item from the template: it stays as it is throughout. Useful for a word picked up by mistake.</td></tr>
+</table>
+<p>The checkbox on each row does the same as <span class="ui">Exclude everywhere</span>, and the checkbox on a group heading acts on the whole type at once.</p>
+
+<h3>Items marked "to check"</h3>
+<p>When a detection is uncertain the item is marked <span class="ui">to check</span>, shown with a dashed underline and <strong>left unchecked by default</strong>: it will not be replaced until you confirm it. This is deliberate — better an omission you catch than a replacement you did not intend.</p>
+
+<h3>Creating a variable the app missed</h3>
+<p>Select the text in the document. The inspector switches to <span class="ui">Selection</span>: give it a name, choose a type, then <span class="ui">Create variable and replace all occurrences</span>. Every appearance of that text in the agreement is handled.</p>
+
+<h2>Creating the template</h2>
+<p>Three options, below the list:</p>
+<ul>
+<li><span class="ui">Highlight variables in yellow in the template</span> — so they are obvious next time you draft.</li>
+<li><span class="ui">Remove images (logos, signatures, stamps)</span> — recommended: a scanned signature identifies as surely as a name.</li>
+<li><span class="ui">Append the table of variables</span> — the list of variables at the end of the document, <em>without</em> the original values.</li>
+</ul>
+<p>Click <span class="ui">Create template</span>.</p>
+
+<h3>Reading the report</h3>
+<p>The report gives the number of variables and replacements, then the <strong>residual check</strong>. The app re-reads the whole output file — body, headers, footers, notes, metadata, relationships — looking for any replaced value that survived.</p>
+<p>If one did, it is named with its location. The usual causes are an occurrence you chose to ignore, or text in a non-editable area: a chart, an embedded object, an image.</p>
+<p>The report also states what was removed: metadata, comments, tracked changes accepted and deleted text purged, hyperlinks, images.</p>
+<div class="note"><strong>This check only covers detected or added items.</strong> An undetected name, a deal-specific clause, an unusual structure or plain context may still allow re-identification. Human review remains essential.</div>
+
+<h3>The two files to save</h3>
+<p><span class="ui">Save template (.docx)</span> produces the reusable document.</p>
+<p><span class="ui">Correspondence table (confidential)</span> produces a CSV mapping each variable to its original value. <strong>That file contains the agreement's data.</strong> Keep it as you would keep the agreement itself, never alongside the template: it is what would undo the work.</p>
+
+<h2>Scanned PDFs and images</h2>
+<p>Text recognition runs on your Mac (Vision). Allow a minute for a scanned PDF of several pages. Recognised text is never perfect: read it before relying on the detections, and note that the original layout is not carried over.</p>
+
+<h2>Trial and unlock</h2>
+<p>The app is free. <strong>Three agreements</strong> can be exported as templates at no cost. Opening, analysing and reviewing an agreement are always free: only exporting is counted.</p>
+<p>Re-exporting an agreement you already exported — after fixing a variable, say — does not use another trial.</p>
+<p>Beyond that, a single purchase unlocks the app for good: no subscription, no per-document fee. The purchase covers every Mac signed in with the same Apple Account. <span class="ui">Restore purchases</span>, in the unlock sheet or in the app menu, brings it back after a reinstall or on a new machine.</p>
+
+<h2>Privacy</h2>
+<p>No data collected, no network connection to process your documents, no history. Only a digital fingerprint of already-exported agreements is stored locally, so the same agreement is not counted twice; it cannot be used to reconstruct the document. <a href="index.html">Full privacy policy</a>.</p>
+
+<h2>What the app does not do</h2>
+<ul>
+<li>It does not rewrite deal-specific clauses: a bespoke earn-out stays exactly as drafted.</li>
+<li>It does not guarantee anonymisation within the meaning of data-protection law.</li>
+<li>It gives no legal advice.</li>
+</ul>
+<p>It is a drafting aid. Whoever reuses the template answers for it.</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:applicated.cl@gmail.com">applicated.cl@gmail.com</a></p>
+</div>
+
+</body></html>
